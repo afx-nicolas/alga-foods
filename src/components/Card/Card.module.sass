@@ -1,0 +1,54 @@
+.container
+  display: flex
+  align-items: center
+  background-color: #fff
+  border: 1px solid transparent
+  border-radius: 1rem
+  gap: 1rem
+  padding: 1rem
+  @include shadow()
+  transition: border-color 300ms
+
+  .picture
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: #E7EEF2
+    border-radius: 50%
+    width: 72px
+    aspect-ratio: 1 / 1
+
+    .pictureIcon
+      color: $details
+
+  .info
+    flex: 1
+  
+    h2
+      font-size: 1.5rem
+      font-weight: 700
+    
+  .caret
+    color: $text-primary
+    transition: color 300ms
+
+  &:hover
+    border-color: $primary-color
+
+    .caret
+      color: $primary-color
+  
+  @media screen and (max-width: 540px)
+    .picture
+      width: 64px
+
+    .info
+      h2
+        font-size: 1.25rem
+      
+      span
+        font-size: 0.875rem
+    
+  @media screen and (max-width: 460px)
+    .picture
+      width: 56px
