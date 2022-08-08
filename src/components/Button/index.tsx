@@ -13,6 +13,7 @@ type ButtonType = {
 type ButtonProps = {
   className?: string;
   children?: React.ReactNode;
+  onClick?: () => void;
   variant: 'primary' | 'secondary';
   style: 'filled' | 'outline';
   size: 'sm' | 'md' | 'lg';
@@ -31,10 +32,14 @@ export default function Button(props: ButtonProps) {
     <>
       {props.isLink ? (
         <Link href={props.href}>
-          <a className={classNames}>{props.children}</a>
+          <a onClick={props.onClick} className={classNames}>
+            {props.children}
+          </a>
         </Link>
       ) : (
-        <button className={classNames}>{props.children}</button>
+        <button onClick={props.onClick} className={classNames}>
+          {props.children}
+        </button>
       )}
     </>
   );
