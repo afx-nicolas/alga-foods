@@ -1,5 +1,3 @@
-import type { NextPage } from 'next';
-
 import styles from '../styles/Home.module.sass';
 
 import { useLoading } from '../hooks';
@@ -7,7 +5,7 @@ import Hero from '../components/Hero';
 import Button from '../components/Button';
 import Loading from '../components/Loading';
 
-const Home: NextPage = () => {
+export default function Home() {
   const [isLoading, handleSetLoading] = useLoading();
 
   return (
@@ -32,6 +30,4 @@ const Home: NextPage = () => {
       {isLoading && <Loading />}
     </>
   );
-};
-
-export default Home;
+}
