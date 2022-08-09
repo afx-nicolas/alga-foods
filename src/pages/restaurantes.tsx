@@ -7,12 +7,11 @@ import Card from '../components/Card';
 import { NoData } from '../components/Illustrations';
 import Loading from '../components/Loading';
 
-interface RestaurantsType extends RestaurantType {
-  slug: string;
-}
+interface RestaurantsType extends RestaurantType {}
 
 interface RestaurantesProps {
   restaurants: RestaurantsType[];
+  date: string;
 }
 
 export default function Restaurantes({ restaurants }: RestaurantesProps) {
@@ -52,16 +51,9 @@ export async function getStaticProps() {
       props: {
         restaurants: restaurantes,
       },
-      revalidate: 10,
+      revalidate: 60 * 30, // 30 minutes
     };
-  } catch (e) {
-    console.log(e);
-
-    return {
-      props: {
-        restaurants: [],
-        revalidate: 1,
-      },
-    };
+  } catch {
+    throw new Error('Failed to fetch data');
   }
 }
