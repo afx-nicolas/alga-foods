@@ -37,6 +37,9 @@
   .heroContainer
     grid-template-columns: 1fr
     padding: 2rem 0 4rem
+
+  .heroSvg
+    width: 100%
   
   .cta
     grid-row: 2
@@ -49,3 +52,7 @@
   
   .svgContainer
     justify-content: center
+  
+  @media screen and (max-width: 460px)
+    .cta h1
+      font-size: 2.25rem
