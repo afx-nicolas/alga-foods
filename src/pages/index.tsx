@@ -2,17 +2,13 @@ import type { NextPage } from 'next';
 
 import styles from '../styles/Home.module.sass';
 
+import { useLoading } from '../hooks';
 import Hero from '../components/Hero';
 import Button from '../components/Button';
-import { useState } from 'react';
 import Loading from '../components/Loading';
 
 const Home: NextPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  function handleLoading() {
-    setIsLoading(true);
-  }
+  const [isLoading, handleSetLoading] = useLoading();
 
   return (
     <>
@@ -22,7 +18,7 @@ const Home: NextPage = () => {
           <Button
             isLink
             href="/restaurantes"
-            onClick={handleLoading}
+            onClick={handleSetLoading}
             className={styles.button}
             size="md"
           >
