@@ -1,0 +1,71 @@
+.container
+  display: flex
+  flex-direction: column
+  width: 100%
+  margin: 1.5rem 0
+  gap: 1.5rem
+
+  .banner
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 100%
+    background-image: linear-gradient(92.2deg, $primary-color 0%, #C42DFA 100%)
+    border-radius: 1rem
+    padding: 1rem
+    gap: 1rem
+    @include shadow
+
+    .profile
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 128px
+      aspect-ratio: 1 / 1
+      background-color: #E7EEF2
+      border-radius: 50%
+
+      .pictureIcon
+        color: $details
+    
+    .restaurantInfo
+      display: flex
+      flex-direction: column
+      gap: 0.25rem
+      color: #fff
+      align-items: center
+      justify-content: center
+
+      h1
+        font-size: 1.5rem
+        font-weight: 700
+        text-align: center
+
+  .separator
+    display: flex
+    align-items: center
+    gap: 1.5rem
+
+    span
+      font-size: 1.5rem
+      font-weight: 700
+
+    .line
+      flex: 1
+      height: 1px
+      background-color: $stroke
+
+  .cardsContainer
+    width: 100%
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 1.5rem
+
+  @media screen and (max-width: 1200px)
+    .cardsContainer
+      grid-template-columns: 1fr 1fr
+
+  @media screen and (max-width: 768px)
+    .cardsContainer
+      grid-template-columns: 1fr
