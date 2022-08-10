@@ -5,17 +5,9 @@ import type { RestaurantType } from '../../types/api';
 
 import styles from './Card.module.sass';
 
-interface CardProps extends RestaurantType {
-  handleSetLoading: () => void;
-}
+interface CardProps extends RestaurantType {}
 
-export default function Card({
-  id,
-  nome,
-  cozinha,
-  taxaFrete,
-  handleSetLoading,
-}: CardProps) {
+export default function Card({ id, nome, cozinha, taxaFrete }: CardProps) {
   function toCurrency(value: number) {
     return value.toLocaleString('pt-BR', {
       style: 'currency',
@@ -25,7 +17,7 @@ export default function Card({
 
   return (
     <Link href={`/restaurante/${id}`}>
-      <a onClick={handleSetLoading} className={styles.container}>
+      <a className={styles.container}>
         <div className={styles.picture}>
           <ForkKnife className={styles.pictureIcon} size={32} />
         </div>

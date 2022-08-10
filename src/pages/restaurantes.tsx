@@ -1,11 +1,9 @@
 import { api } from '../services/api';
 import type { GetRestaurantsType, RestaurantType } from '../types/api';
 
-import { useLoading } from '../hooks';
 import styles from '../styles/Restaurantes.module.sass';
 import Card from '../components/Card';
 import { NoData } from '../components/Illustrations';
-import Loading from '../components/Loading';
 
 interface RestaurantsType extends RestaurantType {}
 
@@ -15,8 +13,6 @@ interface RestaurantesProps {
 }
 
 export default function Restaurantes({ restaurants }: RestaurantesProps) {
-  const [isLoading, handleSetLoading] = useLoading();
-
   return (
     <>
       <div className={styles.container}>
@@ -24,10 +20,7 @@ export default function Restaurantes({ restaurants }: RestaurantesProps) {
         {restaurants.length ? (
           <section className={styles.cardsContainer}>
             {restaurants.map(({ id, nome, cozinha, taxaFrete }) => (
-              <Card
-                key={id}
-                {...{ id, nome, cozinha, taxaFrete, handleSetLoading }}
-              />
+              <Card key={id} {...{ id, nome, cozinha, taxaFrete }} />
             ))}
           </section>
         ) : (
@@ -37,7 +30,6 @@ export default function Restaurantes({ restaurants }: RestaurantesProps) {
           </div>
         )}
       </div>
-      {isLoading && <Loading />}
     </>
   );
 }

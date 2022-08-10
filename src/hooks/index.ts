@@ -1,3 +1,3 @@
-import useLoading from './useLoading';
+import useScreenSize from './useScreenSize';
 
-export { useLoading };
+export { useScreenSize };
