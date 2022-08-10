@@ -2,12 +2,15 @@ import '../styles/globals.sass';
 import type { AppProps } from 'next/app';
 
 import Layout from '../components/Layout';
+import MobileMenuProvider from '../contexts/MobileMenuContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <MobileMenuProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </MobileMenuProvider>
   );
 }
 
