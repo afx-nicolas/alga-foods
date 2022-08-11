@@ -1,0 +1,88 @@
+.container
+  display: flex
+  flex-direction: column
+  padding: 1rem 0 2rem
+  gap: 1.5rem
+
+  .title
+    font-size: 2rem
+    font-weight: 700
+
+
+  .cartProducts
+    background-color: #fff
+    border-collapse: collapse
+    border-radius: 0.5rem
+    @include shadow
+
+    th, td
+      padding: 0.75rem
+      text-align: center
+
+      &:first-child
+        text-align: left
+
+    thead
+      border-bottom: 2px solid $details
+      color: $details
+
+    tbody
+      tr
+        border-bottom: 1px solid $stroke
+
+        &:nth-child(even)
+          background-color: #f6f6f6
+
+      td
+        &.productAmount
+          display: flex
+          align-items: center
+          justify-content: center
+          gap: 0.5rem
+
+          span
+            display: flex
+            align-items: center
+            justify-content: center
+            border: 1px solid $stroke
+            border-radius: 0.25rem
+            padding: 0 0.25rem
+
+          button
+            appearance: none
+            background-color: transparent
+            border: none
+            cursor: pointer
+            outline: none
+            display: flex
+            align-items: center
+            justify-content: center
+            font-size: 1.25rem
+            transition: color 300ms
+
+            &:hover
+              color: $primary-color
+
+        .remove
+          display: flex
+          align-items: center
+          appearance: none
+          background-color: transparent
+          border: none
+          cursor: pointer
+          color: #f55
+          outline: none
+          transition: color 300ms
+
+          &:hover
+            color: #d44
+    
+    tfoot
+      color: $details
+
+      td:first-child
+        font-weight: 700
+
+  @media screen and (max-width: 480px)
+    th, td
+      font-size: 0.875rem
