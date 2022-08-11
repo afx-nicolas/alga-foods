@@ -1,4 +1,7 @@
 import Image from 'next/image';
+import { useContext } from 'react';
+
+import { CartContext } from '../../contexts/CartContext';
 import { ProdutoType } from '../../types/api';
 import Button from '../Button';
 import styles from './ProductCard.module.sass';
@@ -8,11 +11,18 @@ interface ProductCardProps extends ProdutoType {
 }
 
 export default function ProductCard({
+  id,
   nome,
   descricao,
   preco,
   src,
 }: ProductCardProps) {
+  const { addToCart } = useContext(CartContext);
+
+  function handleAddToCart() {
+    addToCart(id, { name: nome, price: preco });
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
@@ -37,7 +47,9 @@ export default function ProductCard({
             style: 'currency',
           })}
         </span>
-        <Button className={styles.addToCard}>Adicionar ao carrinho</Button>
+        <Button onClick={handleAddToCart} className={styles.addToCard}>
+          Adicionar ao carrinho
+        </Button>
       </section>
     </div>
   );
