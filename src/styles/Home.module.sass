@@ -1,0 +1,58 @@
+.heroContainer
+  flex: 1
+  display: grid
+  align-items: center
+  grid-template-columns: 1fr 1fr
+  width: 100%
+  padding: 1.25rem 0
+
+.svgContainer
+  display: flex
+  justify-content: end
+
+.heroSvg
+  filter: drop-shadow(0 0 25px rgba($primary-color, 0.25))
+
+.cta
+  display: flex
+  flex-direction: column
+  gap: 1.5rem
+
+  h1, .button
+    align-self: start
+
+  h1
+    font-size: 3rem
+    font-weight: 700
+
+@media screen and (max-width: 1280px)
+  .heroContainer
+    gap: 1.25rem
+    grid-template-columns: 1fr auto
+  
+  .heroSvg
+    width: 400px
+
+@media screen and (max-width: 1024px)
+  .heroContainer
+    grid-template-columns: 1fr
+    padding: 2rem 0 4rem
+
+  .heroSvg
+    width: 100%
+  
+  .cta
+    grid-row: 2
+
+    h1, .button
+      align-self: center
+    
+    h1
+      text-align: center
+  
+  .svgContainer
+    justify-content: center
+  
+  @media screen and (max-width: 460px)
+    .cta h1
+      font-size: 2.25rem

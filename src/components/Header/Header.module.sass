@@ -1,0 +1,43 @@
+.header
+  width: 100%
+  background-color: $surface
+  border-bottom: 1px solid $stroke
+  color: $primary-color
+  padding: 1rem 1.25rem
+
+.container
+  display: flex
+  justify-content: space-between
+  width: min(1200px, 100%)
+  margin: 0 auto
+
+.actions
+  display: flex
+  gap: 1rem
+  align-items: center
+
+  .nav ul
+    display: flex
+    gap: 1rem
+    
+    a
+      position: relative
+
+      &:after
+        background-color: $primary-color
+        content: ''
+        position: absolute
+        width: 0
+        height: 2px
+        top: 100%
+        left: 50%
+        transform: translateX(-50%)
+        transition: all 300ms
+
+    a:hover
+      &:after
+        width: 100%
+    
+  @media screen and (max-width: 480px)
+    &.actions
+      flex-direction: row-reverse
